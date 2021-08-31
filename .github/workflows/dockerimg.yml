@@ -10,14 +10,9 @@ jobs:
    - name: building docker image
      run: |
        docker build ./ -t mying 
-      
-   - uses: docker/build-push-action@v1
-   - name: Build and push docker image
-     with:
-      username: ${{secrets.username}}
-      password: ${{secrets.password}}
-      run: docker push mying 
-      
-      
+   -  name: Running docker container
+      run: |
+       docker run -d -p 1212:3000 mying
+   
         
    
